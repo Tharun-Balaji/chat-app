@@ -17,11 +17,11 @@ export function SocketContextProvider({children}){
 
     useEffect( () => {
         if (authUser){
-            const socket = io("http://localhost:5000/",{
-                query :{
-                    userId: authUser._id,
-                }
-            });
+            const socket = io("https://chat-app-xflo.onrender.com", {
+				query: {
+					userId: authUser._id,
+				},
+			});
             setSocket(socket);
 
             socket.on("getOnlineUsers", (users) => {
