@@ -17,10 +17,7 @@ export function SocketContextProvider({children}){
 
     useEffect( () => {
         if (authUser){
-            const socket = io(
-				process.env.NODE_ENV == "development"
-					? "http://localhost:5000"
-					: "https://chat-app-xflo.onrender.com",
+            const socket = io("https://chat-app-xflo.onrender.com",
 				{
 					query: {
 						userId: authUser._id,
